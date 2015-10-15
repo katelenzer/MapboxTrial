@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,6 +36,7 @@
     width:33.3333%;
     height:100%;
     top:0;left:0;
+    overflow:hidden;
     border-right:1px solid rgba(0,0,0,0.25);
   }
   .pad2 {
@@ -140,7 +142,7 @@
   </div>
   <div id='map' class='map'> </div>
   <script>
-  L.mapbox.accessToken = 'pk.eyJ1Ijoia2xlbnplciIsImEiOiJjaWZvYW43amZoNHVucnlseHZxeDMyM2YwIn0.ExI_277PRKLNqfaSY3N_YQ';
+  L.mapbox.accessToken = '<your accesstoken here>';
   var geojson = [
       {
         "type": "FeatureCollection",
@@ -383,7 +385,7 @@
         ]
       }
   ];
-  var map = L.mapbox.map('map', 'klenzer.nnbhok8m')
+  var map = L.mapbox.map('map', 'examples.map-i80bb8p3')
   .setView([38.909671288923, -77.034084142948], 16);
 
   map.scrollWheelZoom.disable();
@@ -441,7 +443,7 @@
       return false;
     };
 
-    / Marker interaction
+    // Marker interaction
     locale.on('click', function(e) {
       // 1. center the map on the selected marker.
       map.panTo(locale.getLatLng());
@@ -454,7 +456,10 @@
     locale.bindPopup(popup);
 
     locale.setIcon(L.icon({
-      iconUrl: 'https://www.mapbox.com/guides/demos/store-locator/marker.png',
+      iconUrl: 'marker.png',
+      iconSize: [56, 56],
+      iconAnchor: [28, 28],
+      popupAnchor: [0, -34]
     }));
 
 });
