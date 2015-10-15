@@ -441,7 +441,7 @@
       return false;
     };
 
-    // Marker interaction
+    / Marker interaction
     locale.on('click', function(e) {
       // 1. center the map on the selected marker.
       map.panTo(locale.getLatLng());
@@ -453,8 +453,12 @@
     popup += '</div>';
     locale.bindPopup(popup);
 
-    locale.setIcon(L.icon.Default
-    );
+    locale.setIcon(L.icon({
+      iconUrl: 'http://leafletjs.com/docs/images/leaf-green.png',
+      iconSize: [56, 56],
+      iconAnchor: [28, 28],
+      popupAnchor: [0, -34]
+    }));
 
 });
 </script>
